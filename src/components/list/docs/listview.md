@@ -27,6 +27,16 @@ instance of a [KDView][kdview].
 Additionally, to demonstrate the index adding, we added the `"Item 0"` view 
 second, with an index of `0`.
 
+### Boxes
+
+Boxes are a new concept in lists. Boxes allow you to conveniently group elements of the list into groups. By setting a list as `boxed` you will make the it automatically arrange elements into boxes on append or prepend. Let's start by creating a boxed list
+
+```coffee
+view = new KDListView
+	boxed: true        #Make list boxed
+	itemsPerBox: 3     #The list will automatically create a new box for every 3 elements
+```
+
 ## API Index
 
 > class KDListView extends [KDView][kdview]
@@ -45,6 +55,8 @@ second, with an index of `0`.
 > - [moveItemToIndex](#moveItemToIndex): (item,newIndex) ->
 > - [doIHaveToScroll](#doIHaveToScroll): ->
 > - [isScrollAtBottom](#isScrollAtBottom): ->
+> - [packageItem](#packageItem): (itemInstance) ->
+> - [createBox](#createBox): ->
 
 
 ## [Class](https://github.com/koding/kd/blob/master/src/components/list/listview.coffee#L3)
