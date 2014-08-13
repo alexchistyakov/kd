@@ -36,6 +36,15 @@ second, with an index of `0`.
 > - [addItem](#addItem): (itemData,index) ->
 > - [removeItem](#removeItem): (itemInstance,itemData,index) ->
 > - [removeItemByData](#removeItemByData): (itemData) ->
+> - [removeItemByIndex](#removeItemByIndex): (index) ->
+> - [destroy](#destroy): ->
+> - [addItemView](#addItemView): (itemInstance,index) ->
+> - [appendItem](#appendItem): (itemInstance) ->
+> - [insertItemAtIndex](#insertItemAtIndex): (itemInstance,index) ->
+> - [getItemIndex](#getItemIndex): (itemInstance) ->
+> - [moveItemToIndex](#moveItemToIndex): (item,newIndex) ->
+> - [doIHaveToScroll](#doIHaveToScroll): ->
+> - [isScrollAtBottom](#isScrollAtBottom): ->
 
 
 ## [Class](https://github.com/koding/kd/blob/master/src/components/list/listview.coffee#L3)
@@ -72,6 +81,7 @@ KDListView extends [KDView][kdview]. Please see that for inherited methods.
   - **options.itemsPerBox**: Amount of items put in each box
     - Type: number
     - Default: `10`
+    
 ### [empty]()
 > [empty](#empty): ->
 
@@ -161,7 +171,7 @@ The removed item. `null` if nothing was removed
 Destroys the view and all its children
 
 ###[addItemView]()
->[addItemView](#addItemView): (itemInstance,index) ->
+> [addItemView](#addItemView): (itemInstance,index) ->
 
 Adds an already created view to the list. The default options will not be passed and the class will not be set. Emits `"ItemWasAdded"` with the created view and the index as parameters
 
@@ -176,7 +186,7 @@ Adds an already created view to the list. The default options will not be passed
   - Default: `undefined`
   
 ###[appendItem]()
->[appendItem](#appendItem): (itemInstance) ->
+> [appendItem](#appendItem): (itemInstance) ->
 
 Appends item to the end of the list
 
@@ -190,7 +200,7 @@ Appends item to the end of the list
 The added item
 
 ###[insertItemAtIndex]()
->[insertItemAtIndex](#insertItemAtIndex): (itemInstance,index) ->
+> [insertItemAtIndex](#insertItemAtIndex): (itemInstance,index) ->
 
 Insert an already created view at a certain index the list. The default options will not be passed and the class will not be set. Emits `"ItemWasAdded"` with the created view and the index as parameters
 
@@ -207,10 +217,27 @@ Insert an already created view at a certain index the list. The default options 
 #### Returns
 The added item
 
-####Box stuff goes here
+###[packageItem]()
+> [packageItem](#packageItem): (itemInstance) ->
+
+Packages an item into a suitable box. Will not work if `boxed` is set to `false`
+
+#### Args
+
+1. **itemInstance**: The instance of the view that you would like to package
+  - Type: object
+  - Default: `undefined`
+  
+###[createBox]()
+> [createBox](#createBox): ->
+
+Creates and returns a new box
+
+#### Returns
+A newly created box
 
 ###[getItemIndex]()
->[getItemIndex](#getItemIndex): (itemInstance) ->
+> [getItemIndex](#getItemIndex): (itemInstance) ->
 
 Returns the index of the itemInstance specified. Returns -1 if the item is not in the list
 
@@ -224,7 +251,7 @@ Returns the index of the itemInstance specified. Returns -1 if the item is not i
 The index of the item
 
 ###[moveItemToIndex]()
->[moveItemToIndex](#moveItemToIndex): (item,newIndex) ->
+> [moveItemToIndex](#moveItemToIndex): (item,newIndex) ->
 
 Move an item from one index in the list to another
 
